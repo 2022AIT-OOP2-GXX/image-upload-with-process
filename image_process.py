@@ -21,7 +21,8 @@ class WatchChangeHandler(FileSystemEventHandler):
             return
         if get_ext(event.src_path) in ('.jpg', '.jpeg', '.png'):
             print('%s has been modified.' % event.src_path)
-
+            
+            # 画像処理のプログラムは、Processorディレクトリ以下で管理されており、追加があればここに追加する
             Processor.GrayScaleProcessor().process(event.src_path)
 
 
